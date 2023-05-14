@@ -2902,10 +2902,15 @@ async function af3() {
 
 async function af4() {
   core.info("Hey af4()");
+  aaf1();
 }
 
 async function af5() {
   core.info("Hey af5()");
+}
+
+async function aaf1() {
+  core.info("Hey aaf1()");
 }
 
 run();
