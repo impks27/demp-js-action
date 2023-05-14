@@ -2917,6 +2917,18 @@ async function af4() {
 
 async function af5() {
   core.info("Hey af5()");
+  writerFunction();
+  core.info("######### Logger #########");
+  readerFunction();
+  zipContent();
+}
+
+async function aaf1() {
+  core.info("Hey aaf1()");
+}
+
+async function writerFunction() {
+  core.info("##### writerFunction #####");
   // Data which will write in a file.
   let data = "I am the content!"
       
@@ -2930,25 +2942,24 @@ async function af5() {
       }
       core.info("End writeFile.....");
   });
-  core.info("######### Logger #########");
-  fs.readFile('Output.txt', (err, inputD) => {
-      core.info("Start readFileSync.....");
-      if (err) 
-        throw err;
-      else {
-        core.info("Print content.");
-        core.info(inputD.toString());
-      }
-      core.info("End readFileSync.....");
-  });
-  zipContent();
 }
 
-async function aaf1() {
-  core.info("Hey aaf1()");
+async function readerFunction() {
+  core.info("##### readerFunction #####");
+  fs.readFile('Output.txt', (err, inputD) => {
+    core.info("Start readFileSync.....");
+    if (err) 
+      throw err;
+    else {
+      core.info("Print content.");
+      core.info(inputD.toString());
+    }
+    core.info("End readFileSync.....");
+});
 }
 
 async function zipContent() {
+  core.info("##### zipContent #####");
   core.info("Check workspace");
   exec('ls -la', (err, stdout, stderr) => {
     if (err) {
