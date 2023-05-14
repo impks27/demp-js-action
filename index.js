@@ -77,7 +77,7 @@ async function af5() {
   let data = "I am the content!"
       
   // Write data in 'Output.txt' .
-  fs.writeFileSync('Output.txt', data, (err) => {
+  fs.writeFile('Output.txt', data, (err) => {
       core.info("Start writeFile.....");
       // In case of a error throw err.
       if (err) throw err;
@@ -87,7 +87,7 @@ async function af5() {
       core.info("End writeFile.....");
   });
   core.info("######### Logger #########");
-  fs.readFileSync('Output.txt', (err, inputD) => {
+  fs.readFile('Output.txt', (err, inputD) => {
       core.info("Start readFileSync.....");
       if (err) 
         throw err;
