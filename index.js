@@ -85,7 +85,7 @@ async function af4() {
 
 async function af5() {
   core.info("Hey af5()");
-  fs.readFile('Output.txt', (err, inputD) => {
+  fs.readFileSync('Output.txt', (err, inputD) => {
     if (err) throw err;
        console.log(inputD.toString());
   });
@@ -103,7 +103,6 @@ async function zipContent() {
       console.error(`exec error: ${err}`);
       return;
     }
-    console.log(`Content: ${stdout}`);
   });
   core.info("Create files and folders to be zip");
 }
