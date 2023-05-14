@@ -74,7 +74,7 @@ async function af4() {
 async function af5() {
   core.info("Hey af5()");
   // Data which will write in a file.
-  let data = "Learning how to write in a file."
+  let data = "I am the content!"
       
   // Write data in 'Output.txt' .
   fs.writeFileSync('Output.txt', data, (err) => {
