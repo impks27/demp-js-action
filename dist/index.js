@@ -2912,27 +2912,31 @@ async function af3() {
 
 async function af4() {
   core.info("Hey af4()");
-  // Data which will write in a file.
-  let data = "Learning how to write in a file."
-      
-  // Write data in 'Output.txt' .
-  await fs.writeFile('Output.txt', data, (err) => {
-      core.info("Calling writeFile.....");
-      // In case of a error throw err.
-      if (err) throw err;
-      else {
-        console.log("The file is updated with the given data");
-      }
-  })
   aaf1();
 }
 
 async function af5() {
   core.info("Hey af5()");
+  // Data which will write in a file.
+  let data = "Learning how to write in a file."
+      
+  // Write data in 'Output.txt' .
+  fs.writeFile('Output.txt', data, (err) => {
+      core.info("Start writeFile.....");
+      // In case of a error throw err.
+      if (err) throw err;
+      else {
+        console.log("The file is updated with the given data");
+      }
+      core.info("End writeFile.....");
+  });
+  core.info("####################################");
   fs.readFileSync('Output.txt', (err, inputD) => {
+    core.info("Start readFileSync.....");
     if (err) throw err;
        console.log(inputD.toString());
   });
+  core.info("End readFileSync.....");
   zipContent();
 }
 
