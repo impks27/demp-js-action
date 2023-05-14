@@ -2916,7 +2916,7 @@ async function af4() {
   let data = "Learning how to write in a file."
       
   // Write data in 'Output.txt' .
-  fs.writeFile('Output.txt', data, (err) => {
+  await fs.writeFile('Output.txt', data, (err) => {
       core.info("Calling writeFile.....");
       // In case of a error throw err.
       if (err) throw err;
