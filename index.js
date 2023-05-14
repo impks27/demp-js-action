@@ -1,6 +1,7 @@
 const core = require('@actions/core');
 const fs = require('fs');
 const wait = require('./wait');
+const exec = require('child_process');
 
 
 // most @actions toolkit packages have async methods
@@ -87,11 +88,24 @@ async function af5() {
   fs.readFile('Output.txt', (err, inputD) => {
     if (err) throw err;
        console.log(inputD.toString());
- })
+  });
+  zipContent();
 }
 
 async function aaf1() {
   core.info("Hey aaf1()");
+}
+
+async function zipContent() {
+  core.info("Check workspace");
+  exec('ls -la', (err, stdout, stderr) => {
+    if (err) {
+      console.error(`exec error: ${err}`);
+      return;
+    }
+    console.log(`Content: ${stdout}`);
+  });
+  core.info("Create files and folders to be zip");
 }
 
 run();

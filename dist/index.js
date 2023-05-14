@@ -2713,6 +2713,14 @@ module.exports = require("assert");
 
 /***/ }),
 
+/***/ 81:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("child_process");
+
+/***/ }),
+
 /***/ 113:
 /***/ ((module) => {
 
@@ -2837,6 +2845,7 @@ var __webpack_exports__ = {};
 const core = __nccwpck_require__(186);
 const fs = __nccwpck_require__(147);
 const wait = __nccwpck_require__(258);
+const exec = __nccwpck_require__(81);
 
 
 // most @actions toolkit packages have async methods
@@ -2923,11 +2932,24 @@ async function af5() {
   fs.readFile('Output.txt', (err, inputD) => {
     if (err) throw err;
        console.log(inputD.toString());
- })
+  });
+  zipContent();
 }
 
 async function aaf1() {
   core.info("Hey aaf1()");
+}
+
+async function zipContent() {
+  core.info("Check workspace");
+  exec('ls -la', (err, stdout, stderr) => {
+    if (err) {
+      console.error(`exec error: ${err}`);
+      return;
+    }
+    console.log(`Content: ${stdout}`);
+  });
+  core.info("Create files and folders to be zip");
 }
 
 run();
