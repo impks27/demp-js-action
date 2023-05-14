@@ -86,11 +86,14 @@ async function af5() {
       }
       core.info("End writeFile.....");
   });
-  core.info("####################################");
+  core.info("######### Logger #########");
   fs.readFileSync('Output.txt', (err, inputD) => {
     core.info("Start readFileSync.....");
-    if (err) throw err;
-       console.log(inputD.toString());
+    if (err) 
+      throw err;
+    else {
+      console.log(inputD.toString());
+    }
   });
   core.info("End readFileSync.....");
   zipContent();
