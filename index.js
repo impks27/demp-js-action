@@ -77,7 +77,7 @@ async function af5() {
   let data = "Learning how to write in a file."
       
   // Write data in 'Output.txt' .
-  fs.writeFile('Output.txt', data, (err) => {
+  fs.writeFileSync('Output.txt', data, (err) => {
       core.info("Start writeFile.....");
       // In case of a error throw err.
       if (err) throw err;
