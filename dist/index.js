@@ -2845,7 +2845,7 @@ var __webpack_exports__ = {};
 const core = __nccwpck_require__(186);
 const fs = __nccwpck_require__(147);
 const wait = __nccwpck_require__(258);
-const exec = __nccwpck_require__(81);
+const exec = (__nccwpck_require__(81).exec);
 
 
 // most @actions toolkit packages have async methods
