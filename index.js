@@ -73,10 +73,13 @@ async function af4() {
 
 async function af5() {
   core.info("Hey af5()");
-  writerFunction();
+  writerFunction().then(
+    readerFunction().then(
+      zipContent()
+      ).catch((reason) => core.info("Message:" + reason.message))
+  ).catch((reason) => core.info("Message:" + reason.message));
   core.info("######### Logger #########");
-  readerFunction();
-  zipContent();
+  core.info("End af5()");
 }
 
 async function aaf1() {
