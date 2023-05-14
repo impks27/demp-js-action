@@ -2926,20 +2926,21 @@ async function af5() {
       // In case of a error throw err.
       if (err) throw err;
       else {
-        console.log("The file is updated with the given data");
+        core.info("The file is updated with the given data");
       }
       core.info("End writeFile.....");
   });
   core.info("######### Logger #########");
   fs.readFileSync('Output.txt', (err, inputD) => {
-    core.info("Start readFileSync.....");
-    if (err) 
-      throw err;
-    else {
-      console.log(inputD.toString());
-    }
+      core.info("Start readFileSync.....");
+      if (err) 
+        throw err;
+      else {
+        core.info("Print content.");
+        core.info(inputD.toString());
+      }
+      core.info("End readFileSync.....");
   });
-  core.info("End readFileSync.....");
   zipContent();
 }
 
